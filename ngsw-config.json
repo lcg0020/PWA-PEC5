@@ -14,11 +14,24 @@
     {
       "name": "api-data",
       "installMode": "lazy",
-      "updateMode": "refresh",
+      "updateMode": "prefetch",
       "resources": {
         "urls": [
           "https://gateway.marvel.com/v1/public/**"
         ]
+      }
+    }
+    
+  ],
+  "dataGroups": [
+    {
+      "name": "marvel-api",
+      "urls": ["https://gateway.marvel.com/v1/public/**"],
+      "cacheConfig": {
+        "maxSize": 10, 
+        "maxAge": "1h",
+        "timeout": "1s",
+        "strategy": "freshness"
       }
     }
   ]
