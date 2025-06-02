@@ -1,11 +1,9 @@
 const CACHE_NAME = 'marvel-pwa-cache-v1';
 const urlsToCache = [
   '/',
-  '/src/index.html',
+  '/index.html',
   '/assets/manifest.webmanifest',
-  '/src/styles.css',
   '/assets/css/animate.css',
-  '/src/main.js'
 ];
 
 // ✅ Instalar el Service Worker y guardar archivos estáticos en caché
