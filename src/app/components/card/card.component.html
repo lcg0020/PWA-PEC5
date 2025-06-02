@@ -1,0 +1,12 @@
+<mat-card class="character-card" (click)="navigateToDetail()">
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="{{ character.name }}">
+  <mat-card-content>
+    <p>{{ character.description || 'Descripción no disponible' }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Ver detalles</button>
+  </mat-card-actions>
+</mat-card>

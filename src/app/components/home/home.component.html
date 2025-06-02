@@ -1,0 +1,19 @@
+<h2 class="animated shake">Lista de personajes Marvel</h2>
+
+<div class="container">
+  <!-- Botones para cambiar entre vista de tabla y tarjetas -->
+  <div class="view-toggle">
+    <button mat-button (click)="toggleView()">Cambiar a {{ viewMode === 'table' ? 'Tarjeta' : 'Tabla' }}</button>
+  </div>
+
+  <!-- Mostrar spinner mientras se cargan los datos -->
+  <mat-spinner *ngIf="loading"></mat-spinner>
+
+  <!-- Vista en modo tabla -->
+  <app-grid *ngIf="!loading && viewMode === 'table'" [characters]="characters"></app-grid>
+
+  <!-- Vista en modo tarjetas -->
+  <div *ngIf="!loading && viewMode === 'cards'" class="card-container">
+    <app-card *ngFor="let character of characters" [character]="character"></app-card>
+  </div>
+</div>

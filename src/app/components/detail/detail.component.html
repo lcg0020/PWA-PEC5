@@ -1,0 +1,30 @@
+<div *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading && character" class="detail-container">
+  <mat-card class="character-detail">
+    <mat-card-header>
+      <mat-card-title>{{ character.name }}</mat-card-title> <!-- Solo el nombre arriba -->
+      <mat-card-actions class="back-button">
+        <button mat-button routerLink="/">Volver</button> <!-- Botón Back a la derecha -->
+      </mat-card-actions>
+    </mat-card-header>
+    
+    <img mat-card-image [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="{{ character.name }}">
+  </mat-card>
+
+  <!-- Botón para mostrar detalles -->
+  <button mat-button (click)="showDetails = !showDetails">Show all details</button>
+
+  <!-- Expansion Panel para mostrar detalles -->
+  <mat-expansion-panel *ngIf="showDetails">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Detalles adicionales</mat-panel-title>
+    </mat-expansion-panel-header>
+    
+    <p><strong>ID:</strong> {{ character.id }}</p>
+    <p><strong>Descripción:</strong> {{ character.description || 'No disponible' }}</p>
+    <p><strong>Comics disponibles:</strong> {{ character.comics.available }}</p>
+  </mat-expansion-panel>
+</div>

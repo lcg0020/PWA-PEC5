@@ -1,0 +1,25 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/assets/**"
+        ]
+      }
+    },
+    {
+      "name": "api-data",
+      "installMode": "lazy",
+      "updateMode": "refresh",
+      "resources": {
+        "urls": [
+          "https://gateway.marvel.com/v1/public/**"
+        ]
+      }
+    }
+  ]
+}

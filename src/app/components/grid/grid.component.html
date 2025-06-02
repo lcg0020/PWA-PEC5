@@ -1,0 +1,34 @@
+<table mat-table [dataSource]="characters" class="mat-elevation-z8">
+  
+  <!-- Columna de imagen -->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef> Imagen </th>
+    <td mat-cell *matCellDef="let character">
+      <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="Imagen" width="50">
+    </td>
+  </ng-container>
+
+  <!-- Columna de nombre -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let character"> {{ character.name }} </td>
+  </ng-container>
+
+  <!-- Columna de descripción -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let character"> {{ character.description || 'No disponible' }} </td>
+  </ng-container>
+
+  <!-- Columna de detalles -->
+  <ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef> Más info </th>
+    <td mat-cell *matCellDef="let character">
+      <button mat-button (click)="navigateToDetail(character.id)">Ver detalles</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" class="animated fadeInUp animate__animated animate__bounce animate__fadeIn"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="animated fadeInUp animate__animated animate__bounce animate__fadeIn"></tr>
+
+</table>
