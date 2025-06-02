@@ -1,4 +1,5 @@
 const CACHE_NAME = 'marvel-pwa-cache-v1';
+const API_CACHE_NAME = 'marvel-api-cache'; 
 const urlsToCache = [
   '/',
   '/index.html',
